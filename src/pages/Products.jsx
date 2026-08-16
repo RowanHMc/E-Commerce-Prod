@@ -10,8 +10,27 @@ export function Products(){
     const[selectedCategory, setSelectedCategory] = useSate('all');
 
     useEffect(() => {
-        
-    })
+        const fetchProducts = async () => {
+            try {
+                setLoading(true);
+                const response = await fetch('https://fakestoreapi.com/products');
+
+                if (!response.ok) {
+                    throw new Error('Loading Failed');
+                }
+            const data = await response.json();
+            setProducts(data);    
+            }catch(err) {
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+    };
+
+    fetchProducts();
+    },[]);
+
+    
 
     return(
         <div>
