@@ -45,6 +45,22 @@ export function ProductDetails(){
     return(
         <div>
             <h1>Product Details</h1>
+            <a href="products">Back to Products</a>
+            <h2>{product.title}</h2>
+            <img src={product.image} alt={product.title} width="150"/>
+            <p>Price: {product.price}</p>
+            <p>Category : {product.category}</p>
+            <button 
+            type="button"
+            onClick={() => addToCart(product)}
+            aria-label="Add to cart">
+            </button>
+        <nav className="mt-20">
+            <a href="product,id">Details</a>
+            <a href="product,id,specifications">Specification</a>
+            <a href="product,id,reviews">reviews</a>
+        </nav>
+
         </div>
     )
 }
