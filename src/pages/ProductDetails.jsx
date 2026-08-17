@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useCallback } from "../contex/CartContext.jsx";
+import { useCart } from "../contex/CartContext";
 
 export function ProductDetails(){
     const {id} = useParams();
