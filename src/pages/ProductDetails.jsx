@@ -58,7 +58,7 @@ export function ProductDetails(){
         <nav className="mt-20">
             <a href="product,id">Details</a>
             <a href="product,id,specifications">Specification</a>
-            <a href="product,id,reviews">reviews</a>
+            <a href="product,id,reviews">Reviews</a>
         </nav>
 
         </div>
