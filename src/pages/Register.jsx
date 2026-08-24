@@ -10,3 +10,19 @@ export function Register() {
 
     const { login } = useAuth();
     const navigate = useNavigate();
+
+   const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (!name.trim() || !email.trim() || !password.trim()) {
+            setError('All fields are required.');
+            return;
+        } 
+        setError('');
+        // Log in the user immediately upon registration
+        login({ name, email });
+        navigate('/products');
+    };
+
+    
+};
