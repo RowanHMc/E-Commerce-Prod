@@ -1,21 +1,23 @@
 import { useState, useEffect } from "react";
+import { useParams, Link, Routes, Route } from "react-router-dom";
 import { useCart } from "../contex/CartContext";
+
 
 export function ProductDetails(){
     const {id} = useParams();
-    const {adTtoCart} = useCart();
+    const {addTtoCart} = useCart();
 
-    const [product, setProduct] = useState();
+    const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
       useEffect(() => {
-        const fetchProducts = async () => {
+        const fetchProduct = async () => {
             try {
                 setLoading(true);
                 setError(null);
 
-                const response = await fetch('https://fakestoreapi.com/products');
+                const response = await fetch('https://fakestoreapi.com/products/${id}');
 
                 if (!response.ok) {
                     throw new Error('Prduct Not Found');
@@ -45,7 +47,7 @@ export function ProductDetails(){
     return(
         <div>
             <h1>Product Details</h1>
-            <a href="products">Back to Products</a>
+            <Link to="products">Back to Products</Link>
             <h2>{product.title}</h2>
             <img src={product.image} alt={product.title} width="150"/>
             <p>Price: {product.price}</p>
@@ -55,11 +57,18 @@ export function ProductDetails(){
             onClick={() => addToCart(product)}
             aria-label="Add to cart">
             </button>
-        <nav className="mt-20">
-            <a href="product,id">Details</a>
-            <a href="product,id,specifications">Specification</a>
-            <a href="product,id,reviews">Reviews</a>
+        <nav className="mt-20 flex gap-10">
+            <Link to="/product,id">Details</Link>
+            <Link to="/product,id,specifications">Specification</Link>
+            <Link to="/product,id,reviews">Reviews</Link>
         </nav>
+        <div className="mt-20">
+                <Routes>
+                    <Route path="" element={<p>{product.description}</p>} />
+                    <Route path="specifications" element={<p>Category: {product.category} | Rating: {product.rating?.rate} / 5</p>} />
+                    <Route path="reviews" element={<p>Customer Reviews ({product.rating?.count} reviews)</p>} />
+                </Routes>
+            </div>
 
         </div>
     )

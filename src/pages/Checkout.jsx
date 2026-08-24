@@ -2,8 +2,9 @@ import { useState } from "react";
 import { useCart } from "../contex/CartContext";
 import { useAuth } from "../contex/AuthContext";
 
+
 export function Checkout(){
-    const {cart, totalPrice, claerCart} = useCart();
+    const {cart, totalPrice, clearCart} = useCart();
     const {user} = useAuth();
 
     const [address, setAddress] = useState();
@@ -19,13 +20,13 @@ export function Checkout(){
         }
         setError('');
         setSubmitted(true);
-        claerCart();
+        clearCart();
     };
     if(submitted){
         return(
             <div>
                 <h2>Order Confirmed!</h2>
-                <p>Thank you for your purchase, {user?.email}.</p>
+                <p>Thank you for your purchase, {user?.name}.</p>
             </div>
         );
     };
@@ -38,8 +39,9 @@ export function Checkout(){
             <h3>Order Summary</h3>
             <ul>
                 {cart.map}
+                <li key={item.id}>{item.title} x {item.quantity} - ${item.price * item.quantity}</li>
             </ul>
-            <h4>Total to pay: ${totalPrice}</h4>
+            <h4>Total to pay: ${totalPrice.toFixed(2)}</h4>
             {error && <p>{error}</p>}
 
             <form onSubmit={handleSubmit}>
@@ -55,8 +57,9 @@ export function Checkout(){
                     value ={city}
                     onChange = {(e) => setCity(e.target.value)}/>
                 </div>
+                < button type="submit">Place Order</button>
             </form>
-            < button type="submit">Place Order</button>
+            
         </div>
     )
 }

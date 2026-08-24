@@ -1,9 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { requestFormReset } from "react-dom";
 
 const CartContext = createContext();
+
  export const CartProvider = ({children}) => {
-    const [Cart, setCart] = useState([]);
+    const [cart, setCart] = useState([]);
 
    const addToCart = (product) => {
     setCart((prevCart) => {
@@ -37,9 +37,9 @@ const CartContext = createContext();
   const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
     return(
-        <CartContext.Provder value = {{cart, addToCart, removeFromCart, updateQuantity, clearCart, totalItems, totalPrice}}>
+        <CartContext.Provider value = {{cart, addToCart, removeFromCart, updateQuantity, clearCart, totalItems, totalPrice}}>
             {children}
-        </CartContext.Provder>
+        </CartContext.Provider>
     )
  };
 

@@ -1,15 +1,22 @@
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../contex/AuthContext";
 
 
 
 export function Login(){
+
+    
     const[email, setEmail] = useState('');
     const[password, setPassword] = useState('');
     const[error, setError] = useState('');
 
     const {login} = useAuth();
-  
+    const navigate = useState();
+    const location = useState();
+
+    const from = location.state?.from?.pathname || "/";
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -19,6 +26,8 @@ export function Login(){
         }
         setError('');
         login({email});
+
+        navigate(from, {replace:true})
 
     };
     return( 

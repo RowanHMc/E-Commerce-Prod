@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../contex/AuthContext";
 import { useCart } from "../contex/CartContext";
- add
+ 
 
 export function Navbar () {
     const {isLoggedIn, user, logout} = useAuth();
