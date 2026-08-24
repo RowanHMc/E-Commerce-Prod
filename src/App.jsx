@@ -16,9 +16,9 @@ function App(){
         <>
         <AuthProvider>
             <CartProvider>
-                <div className="min-h-screen bg-zinc-950 text-zinc-200"></div>
+                <div className="min-h-screen flex flex-col justify-start bg-zinc-950 text-zinc-200">
                 <Navbar />
-                <main>
+                <main className="mt-auto">
                 <Routes>
                     <Route path="/" element= {<Home/>} />
                     <Route path="/products" element= {<Products/>} />
@@ -30,7 +30,7 @@ function App(){
                     <Route path="/register" element= {<Register />} />                                     
                 </Routes>
                 </main>
-                
+                </div>
             </CartProvider>
         </AuthProvider>
        
