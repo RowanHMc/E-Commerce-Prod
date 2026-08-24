@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { useCart } from "../contex/CartContext";
+import { useCart } from "../context/CartContext";
 
 export function ProductCard({ product }) {
-    const {addTocart} = useCart(); 
+    const {addToCart} = useCart(); 
        return (
         <div className="group bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden hover:border-zinc-700 hover:shadow-xl transition-all duration-200 flex flex-col h-full">
            
