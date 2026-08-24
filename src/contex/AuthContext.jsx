@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 
 const AuthContext = createContext();
 
@@ -7,6 +7,9 @@ export const AuthProvider = ({children}) => {
     const login = (userData) => {
         setUser(userData);
     };
+    const register = (userData) => {
+        setUser(userData)
+    }
 
     const logout = () => {
         setUser(null);
@@ -14,7 +17,7 @@ export const AuthProvider = ({children}) => {
 
     const isLoggedIn = Boolean(user);
     return(
-        <AuthContext.Provider value ={{user, isLoggedIn, login, logout}}>
+        <AuthContext.Provider value ={{user, isLoggedIn, login, register, logout}}>
             {children}
         </AuthContext.Provider>
     )

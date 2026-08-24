@@ -3,7 +3,7 @@ import { AuthProvider } from "./contex/AuthContext";
 import { CartProvider } from "./contex/CartContext";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-
+import Register from "./pages/Register";
 import Checkout from "./pages/Checkout";
 import Login from "./pages/Login";
 import ProductDetails from "./pages/ProductDetails";
@@ -26,7 +26,8 @@ function App(){
                     <Route path="/cart" element= {<Cart/>} />
                     
                     <Route path="/checkout" element={<ProtectedRoute><Checkout/></ProtectedRoute>} />
-                    <Route path="/login" element= {<Login/>} />                                      
+                    <Route path="/login" element= {<Login/>} /> 
+                    <Route path="/register" element= {<Register />} />                                     
                 </Routes>
                 </main>
                 
