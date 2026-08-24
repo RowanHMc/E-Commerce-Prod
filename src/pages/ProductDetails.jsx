@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, Routes, Route } from "react-router-dom";
-import { useCart } from "../contex/CartContext";
+import { useCart } from "../context/CartContext";
 
 
 export function ProductDetails(){

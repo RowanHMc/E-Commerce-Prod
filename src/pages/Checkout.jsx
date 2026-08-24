@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useCart } from "../contex/CartContext";
-import { useAuth } from "../contex/AuthContext";
+import { useCart } from "../context/CartContext";
+import { useAuth } from "../context/AuthContext";
 
 
 export function Checkout(){

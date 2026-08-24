@@ -1,6 +1,6 @@
 import { Routes,Route } from "react-router-dom";
-import { AuthProvider } from "./contex/AuthContext";
-import { CartProvider } from "./contex/CartContext";
+import { AuthProvider } from "./context/AuthContext";
+import { CartProvider } from "./context/CartContext";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
